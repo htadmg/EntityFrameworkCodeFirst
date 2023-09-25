@@ -16,10 +16,13 @@ namespace EntityFrameworkCodeFirst
             using (var context = new ClienteContext())
             {
                 var quantidade_clientes = context.Clientes.Count();
-                context.Clientes.Add(new Cliente() { Nome = "Agata2", Telefone = "15981712153", CPF = "48156290801" });
-                context.Produtos.Add(new Produto() { Nome = "Camera 2x", Descricao = "Teste produto" });
+                //context.Clientes.Add(new Cliente() { Nome = "Agata2", Telefone = "15981712153", CPF = "48156290801" });
+                //context.Produtos.Add(new Produto() { Nome = "Camera 2x", Descricao = "Teste produto" });
 
-                context.SaveChanges();
+                //context.SaveChanges();
+
+                var query = context.Clientes.Where(c => c.Nome.Contains("Agata")).ToString();
+                var clientes = context.Clientes.Where(c => c.Nome.Contains("Agata")).ToList();
             }
         }
     }
